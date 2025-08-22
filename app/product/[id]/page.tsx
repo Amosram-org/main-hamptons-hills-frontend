@@ -6,15 +6,10 @@ import { ProductCard } from '@/components/ProductCard'
 import Link from 'next/link'
 
 
-interface ProductPageProps {
-  params: {
-    id: string
-  }
-}
-
-export default function ProductPage({ params }: ProductPageProps) {
-  const product = getProductById(params.id)
-  const featuredProducts = getFeaturedProducts().filter(p => p.id !== params.id)
+export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const product = getProductById(id)
+  const featuredProducts = getFeaturedProducts().filter(p => p.id !== id)
 
   if (!product) {
     return notFound()
