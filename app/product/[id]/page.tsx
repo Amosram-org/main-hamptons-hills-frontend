@@ -1,9 +1,15 @@
-// app/products/[id]/page.tsx
+
 import { getProductById, getFeaturedProducts, getProductsByCategory } from '@/data/product'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { ProductCard } from '@/components/ProductCard'
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Product Details - Hamptons Hills',
+  description: 'Detailed view of our exclusive products at Hamptons Hills.',
+};
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params

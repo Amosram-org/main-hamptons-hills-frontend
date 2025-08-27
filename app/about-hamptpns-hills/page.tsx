@@ -7,7 +7,12 @@ import { MdAdd } from "react-icons/md";
 import Image from 'next/image';
 import { images } from '@/data';
 import { TestimonialsCards } from '@/components/TestimonialsCards';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'About Hamptons Hills',
+  description: 'Get to know more about Hamptons Hills.',
+};
 
 const page = () => {
 
@@ -44,7 +49,7 @@ const page = () => {
             <div className='flex-1 flex flex-col gap-6 bg-black text-white py-10 px-6 lg:p-12 rounded-4xl'>
                <div className='flex flex-col items-center lg:items-start gap-4 mb-8'>
                 <h2 className=' font-semibold text-3xl'>Our Main Core Values</h2>
-                <p className='text-gray-300 text-center lg:text-left'>Welcome to Landinger, where innovation meets efficiency. Our cloud-based software solutions.</p>
+                <p className='text-gray-300 text-center lg:text-left lg:max-w-md'>These pillars guide every decision we make and every memorial we create.</p>
                </div> 
 
                <div className='flex flex-col md:flex-row gap-6 mb-8'>

@@ -12,7 +12,7 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  title: "Hamptons Hills",
+  title: "Home - Hamptons Hills",
   description: "A modern kitchen products and gravestones and tombstones manufacturer",
 };
 
