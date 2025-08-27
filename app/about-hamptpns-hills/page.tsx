@@ -10,7 +10,7 @@ import { TestimonialsCards } from '@/components/TestimonialsCards';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Hamptons Hills',
+  title: 'About Us - Hamptons Hills',
   description: 'Get to know more about Hamptons Hills.',
 };
 
