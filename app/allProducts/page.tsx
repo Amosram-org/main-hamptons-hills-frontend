@@ -1,52 +1,186 @@
-'use client'; 
+// 'use client'; 
 
-import { useState } from 'react';;
+// import { useState } from 'react';;
+// import { ProductCard } from "@/components/ProductCard";
+// import { getAllProducts } from '@/data/product';
+
+// const PRODUCTS_PER_PAGE = 8;
+
+// export default function AllProductsPage() {
+//   const allProducts = getAllProducts();
+//   const [visibleCount, setVisibleCount] = useState(PRODUCTS_PER_PAGE);
+
+//   const visibleProducts = allProducts.slice(0, visibleCount);
+//   const hasMoreProducts = visibleCount < allProducts.length;
+
+//   const loadMore = () => {
+//     setVisibleCount(prev => prev + PRODUCTS_PER_PAGE);
+//   };
+
+//   return (
+//     <section className=" bg-black">
+
+//         <div className='py-12 pt-24 flex flex-col items-center gap-4 px-4 '>
+//             <h1 className="text-2xl md:text-3xl text-white font-semibold text-center">Our Products</h1>
+//             <p className='text-white/80 text-center max-w-2xl'>
+//             Explore our wide range of high-quality gravestones amd tombstones, designed to honor and remember loved ones. 
+//             </p>
+//         </div> 
+      
+      
+//       <div className='mx-auto px-4 lg:px-16 py-20 bg-white'>
+//         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+//         {visibleProducts.map((product) => (
+//           <ProductCard key={product.id} product={product} />
+//         ))}
+//         </div>
+
+//         {hasMoreProducts && (
+//             <div className="mt-12 text-center">
+//             <button
+//                 onClick={loadMore}
+//                 className="px-6 py-2 bg-black text-white rounded-full hover:bg-black/90 transition-colors cursor-pointer"
+//             >
+//                 Load More
+//             </button>
+//             <p className="mt-2 text-sm text-gray-500">
+//                 Showing {visibleProducts.length} of {allProducts.length} products
+//             </p>
+//             </div>
+//         )}
+//       </div>
+//     </section>
+//   );
+// }
+
+'use client';
+
+import { useState } from 'react';
 import { ProductCard } from "@/components/ProductCard";
 import { getAllProducts } from '@/data/product';
+import { CiFilter } from "react-icons/ci";
+
 
 const PRODUCTS_PER_PAGE = 8;
+
+// Define categories (you can modify these based on your actual product categories)
+const CATEGORIES = [
+  'All',
+  'Headstones',
+  'Gravestones',
+  'Tombstones',
+  'Plaques',
+];
 
 export default function AllProductsPage() {
   const allProducts = getAllProducts();
   const [visibleCount, setVisibleCount] = useState(PRODUCTS_PER_PAGE);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const visibleProducts = allProducts.slice(0, visibleCount);
-  const hasMoreProducts = visibleCount < allProducts.length;
+  // Filter products based on selected category
+  const filteredProducts = selectedCategory === 'All' 
+    ? allProducts 
+    : allProducts.filter(product => product.category === selectedCategory);
+
+  const visibleProducts = filteredProducts.slice(0, visibleCount);
+  const hasMoreProducts = visibleCount < filteredProducts.length;
 
   const loadMore = () => {
     setVisibleCount(prev => prev + PRODUCTS_PER_PAGE);
   };
 
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    setVisibleCount(PRODUCTS_PER_PAGE); // Reset to first page when changing category
+    setIsFilterOpen(false); // Close dropdown after selection
+  };
+
+  const toggleFilter = () => {
+    setIsFilterOpen(prev => !prev);
+  };
+
   return (
-    <section className=" bg-black">
+    <section className="bg-black">
+      <div className='py-12 pt-24 flex flex-col items-center gap-4 px-4'>
+        <h1 className="text-2xl md:text-3xl text-white font-semibold text-center">Our Products</h1>
+        <p className='text-white/80 text-center max-w-2xl'>
+          Explore our wide range of high-quality gravestones and tombstones, designed to honor and remember loved ones.
+        </p>
+      </div>
 
-        <div className='py-12 pt-24 flex flex-col items-center gap-4 px-4 '>
-            <h1 className="text-2xl md:text-3xl text-white font-semibold text-center">Our Products</h1>
-            <p className='text-white/80 text-center max-w-2xl'>
-            Explore our wide range of high-quality gravestones amd tombstones, designed to honor and remember loved ones. 
-            </p>
-        </div> 
-      
-      
-      <div className='mx-auto px-4 lg:px-16 py-20 bg-white'>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {visibleProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-        </div>
-
-        {hasMoreProducts && (
-            <div className="mt-12 text-center">
+      {/* Filter Section */}
+      <div className="bg-white pt-8">
+        <div className="mx-auto px-4 lg:px-16 w-full">
+          <div className="flex flex-col items-center lg:items-end relative">
+            {/* Filter Button */}
             <button
-                onClick={loadMore}
-                className="px-6 py-2 bg-black text-white rounded-full hover:bg-black/90 transition-colors cursor-pointer"
+              onClick={toggleFilter}
+              className="flex items-center gap-2 px-6 py-1 border border-black  text-black font-medium rounded-2xl transition-colors cursor-pointer"
             >
-                Load More
+              <CiFilter className="w-5 h-5" />
+              Filter by Category
             </button>
-            <p className="mt-2 text-sm text-gray-500">
-                Showing {visibleProducts.length} of {allProducts.length} products
+
+            {/* Dropdown Menu */}
+            {isFilterOpen && (
+              <div className="mt-4 bg-white border border-gray-200 rounded-lg shadow-lg p-4 w-full max-w-md absolute top-full right-0 z-10">
+                <div className="grid grid-cols-1 gap-2">
+                  {CATEGORIES.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => handleCategoryChange(category)}
+                      className={`px-4 py-3 text-left rounded-md transition-colors cursor-pointer ${
+                        selectedCategory === category
+                          ? 'bg-black text-white font-medium'
+                          : 'text-gray-700 hover:bg-gray-100'
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Selected Category Info */}
+            <p className="text-center text-gray-600 mt-4">
+              {selectedCategory === 'All' 
+                ? `Showing all ${filteredProducts.length} products`
+                : `Showing ${filteredProducts.length} product${filteredProducts.length !== 1 ? 's' : ''} in ${selectedCategory}`
+              }
             </p>
+          </div>
+        </div>
+      </div>
+
+      <div className='mx-auto px-4 lg:px-16 pt-8 pb-12 bg-white'>
+        {filteredProducts.length > 0 ? (
+          <>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {visibleProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
             </div>
+
+            {hasMoreProducts && (
+              <div className="mt-12 text-center">
+                <button
+                  onClick={loadMore}
+                  className="px-6 py-2 bg-black text-white rounded-full hover:bg-black/90 transition-colors cursor-pointer"
+                >
+                  Load More
+                </button>
+                <p className="mt-2 text-sm text-gray-500">
+                  Showing {visibleProducts.length} of {filteredProducts.length} products
+                </p>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-gray-500 text-lg">No products found in this category.</p>
+          </div>
         )}
       </div>
     </section>

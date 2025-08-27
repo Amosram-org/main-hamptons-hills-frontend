@@ -3,10 +3,12 @@ import React from 'react'
 
 const CustomizedService = () => {
 
+    const adminPhoneNumber:number = 254721462076;
+
     const whatsappMessage = `Hello, I'm interested in customized services. Could you please provide more information?`
     // URL-encode the message
     const encodedMessage = encodeURIComponent(whatsappMessage)
-    const whatsappUrl = `https://wa.me/+254793810819?text=${encodedMessage}`
+    const whatsappUrl = `https://wa.me/+${adminPhoneNumber}?text=${encodedMessage}`
   return (
     <section className=' px-4 lg:px-16 py-20' id='customized-service'>
       <main className='min-h-[40vh] w-full bg-main-amber flex items-center px-4 lg:px-16 rounded-4xl'>

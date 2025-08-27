@@ -20,6 +20,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           width={200}
           height={200}
         />
+        <p className="absolute top-3 left-4 text-black text-sm font-semibold rounded-full bg-white/90 py-0.5 px-3">{product.category}</p>
       </div>
       <div className="px-2 py-4 md:p-4">
         <h3 className="text-sm lg:text-lg font-semibold text-gray-800">{product.name}</h3>
