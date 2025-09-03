@@ -1,17 +1,19 @@
-// src/app/blog/[slug]/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getBlogPost, getBlogPosts } from '@/data/blogData';
 import MotionDiv from '@/components/ui/MotionDiv';
 
-interface BlogPostPageProps {
-  params: {
+// Define the expected params structure
+interface PageProps {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage(props: PageProps) {
+  // Await the params promise
+  const params = await props.params;
   const post = await getBlogPost(params.slug);
   
   if (!post) {
@@ -20,14 +22,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
-       <div className='w-full min-h-[30vh] flex items-center gap-4 bg-black bg-[url(/images/about-main-page-bg.jpg)] bg-cover bg-center bg-no-repeat'>
-            <div className='w-full min-h-[30vh] py-12 pt-24 flex flex-col items-center gap-4 px-4 bg-black/20'>
-                <h1 className="text-2xl md:text-3xl text-white font-semibold text-center">Blog</h1>
-                <p className='text-white/80 text-center max-w-2xl'>
-                  Read more about our blog.
-                </p>
-            </div>
-       </div>
+      <div className='w-full min-h-[30vh] flex items-center gap-4 bg-black bg-[url(/images/about-main-page-bg.jpg)] bg-cover bg-center bg-no-repeat'>
+        <div className='w-full min-h-[30vh] py-12 pt-24 flex flex-col items-center gap-4 px-4 bg-black/20'>
+          <h1 className="text-2xl md:text-3xl text-white font-semibold text-center">Blog</h1>
+          <p className='text-white/80 text-center max-w-2xl'>
+            Read more about our blog.
+          </p>
+        </div>
+      </div>
 
       {/* Navigation */}
       <nav className="border-b border-gray-200">
@@ -96,6 +98,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 alt={post.title}
                 fill
                 className="object-cover"
+                priority
               />
             </div>
           </div>
@@ -127,7 +130,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps) {
+// Update the generateMetadata function to handle Promise params
+export async function generateMetadata(props: PageProps) {
+  const params = await props.params;
   const post = await getBlogPost(params.slug);
   
   if (!post) {
