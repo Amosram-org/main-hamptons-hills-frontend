@@ -28,9 +28,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {product.description}
         </p>
         <div className="mt-3 flex md:items-center flex-col md:flex-row justify-between">
-          <span className="text-base font-bold text-gray-900">
+          {/* <span className="text-base font-bold text-gray-900">
             KSH {product.price.toLocaleString()}
-          </span>
+          </span> */}
           <span className="text-xs text-gray-500">
             {product.installationIncluded ? "Installation included" : ""}
           </span>

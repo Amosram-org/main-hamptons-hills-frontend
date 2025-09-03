@@ -15,7 +15,9 @@ const Navbar = () => {
         <nav className='hidden lg:flex items-center gap-8 text-sm font-medium'>
             <Link className='hover:underline transition duration-150 ease-out' href="/">Home</Link>
             <Link className='hover:underline transition duration-150 ease-out' href='/allProducts'>Products</Link>
+            <Link className='hover:underline transition duration-150 ease-out' href='/our-services'>Services</Link>
             <Link className='hover:underline transition duration-150 ease-out' href="/#about-us">About</Link>
+            <Link className='hover:underline transition duration-150 ease-out' href="/#blogs">Blogs</Link>
             <Link className='hover:underline transition duration-150 ease-out' href="/#contact-us">Contact</Link>
         </nav>
 

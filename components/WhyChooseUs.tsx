@@ -15,7 +15,7 @@ const WhyChooseUs = () => {
                     <div className='py-2 px-4 bg-gray-50 rounded-md w-fit shadow-sm'>
                         <MdEqualizer className='w-7 h-7 text-main-amber'/>
                     </div>              
-                    <h1 className='text-xl lg:text-xl font-medium text-black/90 mb-2'>Quality Workamanship</h1>
+                    <h1 className='text-xl lg:text-xl font-medium text-black/90 mb-2'>Quality Workmanship</h1>
                     <p className='text-black/70 text-sm text-center'>Built with durable materials and attention to detail.</p>
                 </div>
 

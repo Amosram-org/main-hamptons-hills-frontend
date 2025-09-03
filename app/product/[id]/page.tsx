@@ -71,9 +71,9 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                     <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
                     <h3 className='my-2.5 text-sm font-medium text-black/70 '>Product Category: <strong>{product.category}</strong></h3>
                     <div className="mt-2 flex items-center">
-                        <span className="text-2xl font-semibold text-gray-800">
+                        {/* <span className="text-2xl font-semibold text-gray-800">
                         KSH {product.price.toLocaleString()}
-                        </span>
+                        </span> */}
                         {product.installationIncluded && (
                         <span className="ml-3 rounded bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
                             Installation Included

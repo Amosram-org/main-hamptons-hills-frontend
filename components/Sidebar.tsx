@@ -6,6 +6,8 @@ import { FaHome  } from "react-icons/fa";
 import { TbGrave2 } from "react-icons/tb";
 import { GrStatusUnknown } from "react-icons/gr";
 import { MdContactPage } from "react-icons/md";
+import { MdHomeRepairService } from "react-icons/md";
+import { TbLogs } from "react-icons/tb";
 
 
 
@@ -34,9 +36,17 @@ const Sidebar = () => {
           <TbGrave2/>
           <span>Products</span>
         </Link>
+        <Link onClick={toggleSidebar} href="/our-services" className=' px-6 py-2 text-lg font-medium hover:bg-gray-500 transition-colors flex items-center gap-3'>
+          <MdHomeRepairService/>
+          <span>Services</span>
+        </Link>
         <Link onClick={toggleSidebar} href="/" className=' px-6 py-2 text-lg font-medium hover:bg-gray-500 transition-colors flex items-center gap-2'>
           <GrStatusUnknown/>
           <span>About Us</span>
+        </Link>
+        <Link onClick={toggleSidebar} href="/#blogs" className=' px-6 py-2 text-lg font-medium hover:bg-gray-500 transition-colors flex items-center gap-2'>
+          <TbLogs/>
+          <span>Blogs</span>
         </Link>
         <Link onClick={toggleSidebar} href="/#contact-us" className=' px-6 py-2 text-lg font-medium hover:bg-gray-500 transition-colors flex items-center gap-3'>
           <MdContactPage/>
