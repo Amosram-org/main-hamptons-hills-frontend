@@ -9,10 +9,8 @@ const PRODUCTS_PER_PAGE = 8;
 
 const CATEGORIES = [
   'All',
-  'Headstones',
-  'Gravestones',
-  'Tombstones',
-  'Plaques',
+  'Headstones & Plaques',
+  'Tombstones & Gravestones',
 ];
 
 export default function AllProductsPage() {

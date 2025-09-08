@@ -167,39 +167,39 @@ export default page
 
 const userTestimonials = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
+    name: " Wanjiku M",
+    location: "Nairobi",
+    body: "Perfect for my mum in Nairobi. The engraving is so clear and beautiful. Asante.",
     img: images.userTestimonialImage.src,
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: images.userTestimonialImage.src
+    name: "Otieno A",
+    location: "Kisumu",
+    body: "They delivered to Kisumu with no stress. The granite quality is top.",
+    img: images.userSvgrepoCom.src,
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: images.userTestimonialImage.src
+    name: "Kipchoge T",
+    location: "Eldoret",
+    body: "Respectful service, fair price. The plaque we got is very strong.",
+    img: images.userSvgrepoCom.src,
   },
   {
     name: "Jane",
-    username: "@jane",
+    location: "@jane",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: images.userTestimonialImage.src
+    img: images.userSvgrepoCom.src,
   },
   {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: images.userTestimonialImage.src,
+    name: "Hassan Ali",
+    location: "Mombasa",
+    body: "From Mombasa, ordered online. Very smooth process and good communication.",
+    img: images.userSvgrepoCom.src,
   },
   {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: images.userTestimonialImage.src,
+    name: "Nyokabi D.",
+    location: "Nakuru",
+    body: "Customized our design exactly how we wanted. Family is very pleased.",
+    img: images.userSvgrepoCom.src,
   },
 ];

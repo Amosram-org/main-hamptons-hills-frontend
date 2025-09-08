@@ -1,10 +1,18 @@
 import Link from 'next/link'
 import React from 'react'
 import { RxArrowTopRight } from "react-icons/rx";
-
+import Image from 'next/image'
+import Tooltip from './clientComponents/Tooltip';
 
 const Footer = () => {
   const year = new Date().getFullYear();
+
+   const adminPhoneNumber:number = 254721462076;
+
+    const whatsappMessage = `Hello, there...`
+    // URL-encode the message
+    const encodedMessage = encodeURIComponent(whatsappMessage)
+    const whatsappUrl = `https://wa.me/+${adminPhoneNumber}?text=${encodedMessage}`
 
   return (
     <div className='w-full bg-black text-white px-6 lg:px-16 min-h-[20vh] rounded-tl-2xl rounded-tr-2xl pt-10'>
@@ -12,6 +20,21 @@ const Footer = () => {
         <div className='flex flex-col gap-3 mb-4'>
           <h1 className='uppercase font-medium text-xl'>Hamptons Hiils</h1>
           <p className='text-white/60 max-w-[70vw] lg:max-w-[20vw]'>Tombstones & Grave stones for sale in Nairobi Kenya. </p>
+          <Tooltip text="Contact us on WhatsApp" position="top">
+            <Link
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2"
+            >
+              <Image
+                src="/images/whatsapp-svgrepo-com.svg"
+                alt="WhatsApp icon"
+                width={30}
+                height={30}
+              />
+            </Link>
+          </Tooltip>
         </div>
 
         <div>

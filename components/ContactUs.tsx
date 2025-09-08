@@ -30,7 +30,7 @@ const ContactUs = () => {
                         <h2 className='text-main-amber font-medium text-lg'>Email Us</h2>
                         <p className='text-main-amber/70'>Send us a message via email.</p>
                         <Link href='mailto:amsgh@gmail.com' className='flex items-center gap-2 text-main-amber/90 hover:text-main-amber/70 transition duration-150'>
-                            <span>email@gmail.com</span>
+                            <span>hillshamptons@gmail.com</span>
                             <IoIosArrowRoundForward/>
                         </Link>
                     </div>
@@ -39,7 +39,7 @@ const ContactUs = () => {
                             <CiPhone className='w-6 h-6 text-main-amber '/>
                         </div>
          
-                        <h2 className='text-main-amber font-medium text-lg'>Call Us</h2>
+                        <h2 className='text-main-amber font-medium text-lg'>Call Us or Whatsapp Us</h2>
                         <p className='text-main-amber/70'>Speak to us over the phone.</p>
                         <Link href='mailto:amsgh@gmail.com' className='flex items-center gap-2 text-main-amber/90 hover:text-main-amber/70 transition duration-150'>
                             <span>0734564330</span>

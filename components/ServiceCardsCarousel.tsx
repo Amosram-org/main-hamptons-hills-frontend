@@ -43,7 +43,7 @@ const ServiceCardContent: React.FC<ServiceCardContentProps> = ({ card }) => {
 
 
       <Image
-        src={card.contentImage} // You might want to make this dynamic too
+        src={card.contentImage} 
         alt={`${card.category} service example`}
         height="500"
         width="500"

@@ -5,12 +5,12 @@ import Image from "next/image";
 const ReviewCard = ({
   img,
   name,
-  username,
+  location,
   body,
 }: {
   img: string;
   name: string;
-  username: string;
+  location: string;
   body: string;
 }) => {
   return (
@@ -25,7 +25,7 @@ const ReviewCard = ({
     >
       <div className="flex flex-row items-center gap-2">
         <Image 
-          className="rounded-full" 
+          className="rounded-full w-10 h-10" 
           width={32} 
           height={32} 
           alt="User Photo" 
@@ -35,7 +35,7 @@ const ReviewCard = ({
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          <p className="text-xs font-medium dark:text-white/40">{location}</p>
         </div>
       </div>
       <blockquote className="mt-2 text-sm">{body}</blockquote>
@@ -45,7 +45,7 @@ const ReviewCard = ({
 
 interface Testimonials {
   name: string;
-  username: string;
+  location: string;
   body: string;
   img: string;
 }
@@ -68,12 +68,12 @@ export function TestimonialsCards({
     <div className={cn("relative flex w-full flex-col items-center justify-center overflow-hidden", className)}>
       <Marquee pauseOnHover className={cn("[--duration:20s]", `[--duration:${duration}]`)}>
         {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+          <ReviewCard key={review.location} {...review} />
         ))}
       </Marquee>
       <Marquee reverse pauseOnHover className={cn("[--duration:20s]", `[--duration:${duration}]`)}>
         {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+          <ReviewCard key={review.location} {...review} />
         ))}
       </Marquee>
       <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
