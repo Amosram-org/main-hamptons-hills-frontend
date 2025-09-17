@@ -77,55 +77,69 @@ export function ServiceCardsCarousel() {
 
 const data: ServiceCardData[] = [
   {
-    category: "Tombstones",
-    title: "Premium Tombstone Craftsmanship",
-    src: images.tombstonesService.src,
-    description: "Handcrafted tombstones with personalized designs and durable materials that stand the test of time.",
+    category: "INSTALLATION",
+    title: "Professional, Respectful, Nationwide Installation",
+    src: '/images/installation-service.png',
+    description: "Our installation process is handled with utmost professionalism and respect. From site preparation to secure placement, we ensure each tombstone or memorial plaque is firmly and accurately installed. We use quality materials and tested methods to guarantee stability and durability, while treating every resting place with the dignity it deserves.",
     contentImage: images.tombstonesService.src,
     features: [
-      "Custom engravings and designs",
-      "Weather-resistant granite and marble",
-      "Lifetime warranty available",
-      "Personalized consultation"
+      "Professional Site Preparation",
+      "Secure & Accurate Placement.",
+      "Quality Materials.",
+      "Tested Installation Method."
     ],
   },
+
   {
-    category: "Gravestones",
-    title: "Elegant Gravestone Memorials",
-    src: images.gravestonesService.src,
-    description: "Traditional and modern gravestones designed to honor your loved ones with dignity and respect.",
+    category: "HEADSTONE CRAFTING AND DESIGNS",
+    title: "Where Artistry Meets Lasting Tribute",
+    src: "/images/headstone-design-service.png",
+    description: "We craft and design headstones with precision and care, combining skilled workmanship with thoughtful design. Every piece is tailored to reflect the life, values, and memory of the individual being honored. From selecting quality stone to engraving details and finishes, our team ensures each headstone is both durable and deeply meaningful.",
     contentImage: images.gravestonesService.src,
     features: [
-      "Classic and contemporary styles",
-      "Professional installation services",
-      "Maintenance packages",
-      "Family discount options"
+      "Personalised Designs",
+      "Skilled Workmanship",
+      "Enduring Memorials",
+      "Quality Materials"
     ],
   },
+
   {
-    category: "Headstones",
-    title: "Custom Headstone Designs",
-    src: images.headstonesService.src,
+    category: "INSCRIPTIONS",
+    title: "Elegant, Lasting Engravings",
+    src: '/images/inscription-service.png',
     description: "Beautifully crafted headstones that serve as lasting tributes to cherished memories.",
     contentImage: images.headstonesService.src,
     features: [
-      "3D design preview",
-      "Eco-friendly materials available",
-      "Quick turnaround times",
-      "Nationwide delivery"
+      "Personalized Engravings",
+      "Lasting Durability",
+      "Respectful Service"      
     ],
   },
+
   {
-    category: "Memorial Plaques",
-    title: "Memorial Plaque Services",
+    category: "TOMBSTONES DESIGNS",
+    title: "Where Tradition Meets Compassion in Design",
     src: images.plaquesService.src,
-    description: "Dignified memorial plaques for various settings including parks, buildings, and special locations.",
+    description: " Every tombstone begins with listening. We take time to understand each family’s wishes, traditions, and ideas. From there, our team designs and customizes a memorial that reflects their vision,  choosing the right stone, shape, and inscription. Once the family approves the design, skilled craftsmen bring it to life with precise carving and finishing. The completed piece is then carefully installed at the gravesite, with respect and attention to detail. Even after installation, we remain available to guide families on care and maintenance, ensuring the memorial stands with dignity for years to come.",
     contentImage: images.plaquesService.src,
     features: [
-      "Bronze, brass, and stainless steel options",
-      "Indoor and outdoor suitable",
-      "Corporate and personal memorials",
-      "Custom sizing available"
+      "Personalized Consultation",
+      "Custom Design",
+      "Ongoing Support"
+    ],
+  },
+
+  {
+    category: "PHOTOS",
+    title: "Where Tradition Meets Compassion in Design",
+    src: "/images/photos-service.png",
+    description: " Our photos are crafted to reflect the true beauty of every memorial. With high-quality resolution and accurate color balance, each image brings out fine details clearly. They are produced to last—whether in print or digital form—ensuring durability over time. Every shot captures inscriptions and finishes with clarity, so families can see the workmanship exactly as it is.",
+    contentImage: images.plaquesService.src,
+    features: [
+      "True-to-Life Representation",
+      "Detail-Focused",
+      "Trusted Presentation"
     ],
   }
 ];

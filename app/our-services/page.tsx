@@ -19,7 +19,7 @@ const page = () => {
             <div className='max-w-5xl mx-auto p-4 lg:px-16 flex flex-col items-center justify-center gap-6  min-h-[60vh]'>
                 <h1 className='text-3xl text-black/90 font-medium'>What We Offer</h1>
                 <p className='text-lg lg:text-xl text-black/70 font-medium text-center max-w-3xl'>
-                At Hampton Hills, we provide a range of high-quality memorial products and services, tailored to honor the memory of your loved ones. Our offerings include custom designs, premium materials, and professional installation services nationwide.
+                Tombstones and Gravestones for sale in Nairobi Kenya specializes in crafting and installing high-quality tombstones, gravestones, headstones, and memorial plaques. Based in Nairobi, we are dedicated to providing families with lasting monuments that honor and preserve the memory of their loved ones. With attention to detail, timeless designs, and reliable service, we ensure every memorial is both meaningful and enduring.
                 </p>
             </div>
         </div>

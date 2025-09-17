@@ -65,7 +65,7 @@ export default function AllProductsPage() {
 
             {/* Dropdown Menu */}
             {isFilterOpen && (
-              <div className="mt-4 bg-white border border-gray-200 rounded-lg shadow-lg p-4 w-full max-w-md absolute top-full right-0 z-10">
+              <div className="mt-4 bg-white border border-gray-200 rounded-lg shadow-xl p-4 w-full max-w-md absolute top-full right-0 z-10">
                 <div className="grid grid-cols-1 gap-2">
                   {CATEGORIES.map((category) => (
                     <button

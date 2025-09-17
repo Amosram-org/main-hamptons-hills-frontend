@@ -95,8 +95,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                         <p className="text-sm text-gray-900">{product.material || 'N/A'}</p>
                         </div>
                         <div>
-                        <h3 className="text-sm font-medium text-gray-500">Dimensions</h3>
-                        <p className="text-sm text-gray-900">{product.size || 'N/A'}</p>
+
                         </div>
                         {product.warranty && (
                         <div>

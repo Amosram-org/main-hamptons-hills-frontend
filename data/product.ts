@@ -107,6 +107,58 @@ export const allProducts: Product[] = [
       warranty: "10+ years against weathering",
       customizationOptions: ["Name", "Dates", "Symbols"]
     },
+    {
+      id: "9",
+      name: "Terrazzo headstone",
+      description: "A stylish and durable terrazzo headstone, crafted with a smooth finish and modern appeal. Designed to withstand time while offering an elegant tribute to loved ones.",
+      category: "Headstones & Plaques",
+      price: 1200,
+      imageUrl: '/images/Terrazzo-headstone.png',
+      material: "Granite",
+      size: "24\" x 12\" x 4\"",
+      installationIncluded: true,
+      warranty: "10+ years against weathering",
+      customizationOptions: ["Name", "Dates", "Symbols"]
+    },
+    {
+      id: "10",
+      name: "Slanted Terrazzo Headstone.",
+      description: "A refined slanted terrazzo headstone that combines durability with a contemporary design. Its angled face provides clear visibility for inscriptions, creating a lasting and elegant memorial.",
+      category: "Headstones & Plaques",
+      price: 1200,
+      imageUrl: '/images/Slanted-terrazzo-headstone..png',
+      material: "Granite",
+      size: "24\" x 12\" x 4\"",
+      installationIncluded: true,
+      warranty: "10+ years against weathering",
+      customizationOptions: ["Name", "Dates", "Symbols"]
+    },
+    {
+      id: "11",
+      name: "Plain Black Ceramic Plaque",
+      description: "A sleek and durable black ceramic plaque, perfect for elegant inscriptions or photographs. Simple yet timeless, it offers a classic way to preserve cherished memories.",
+      category: "Headstones & Plaques",
+      price: 1200,
+      imageUrl: '/images/Plain-black-ceramic-plaque.png',
+      material: "Granite",
+      size: "24\" x 12\" x 4\"",
+      installationIncluded: true,
+      warranty: "10+ years against weathering",
+      customizationOptions: ["Name", "Dates", "Symbols"]
+    },
+    {
+      id: "12",
+      name: "Double slab headstone without base.",
+      description: "A sturdy double slab headstone designed without a base, offering a simple yet durable memorial. Crafted for strength and elegance, it provides a lasting tribute with customizable inscriptions.",
+      category: "Headstones & Plaques",
+      price: 1200,
+      imageUrl: '/images/Double-slab-headstone-without-base..png',
+      material: "Granite",
+      size: "24\" x 12\" x 4\"",
+      installationIncluded: true,
+      warranty: "10+ years against weathering",
+      customizationOptions: ["Name", "Dates", "Symbols"]
+    },
    
   ];
 

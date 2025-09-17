@@ -39,9 +39,18 @@ const page = () => {
         <div className='max-w-5xl mx-auto p-4 lg:px-16 pb-20 flex flex-col items-center justify-center gap-6  min-h-[60vh]'>
             <h1 className='text-3xl text-black/90 font-medium'>Our Story</h1>
             <p className='text-lg lg:text-xl text-black/70 font-medium text-center max-w-3xl'>
-              At Hampton Hills, we understand the importance of creating lasting tributes. With years of experience, our skilled artisans craft high-quality tombstones, gravestones, headstones, and memorial plaques that honor the memory of your loved ones. We provide compassionate service and nationwide installation, ensuring every detail is perfect.
-              Our commitment to quality and care sets us apart, making us a trusted choice across the country.
+              We began with a clear purpose: to honor lives well lived through timeless memorials. What started as a small effort has grown into a trusted name in crafting and installing tombstones, gravestones, headstones, and memorial plaques.
             </p>
+
+            <p className='text-lg lg:text-xl text-black/70 font-medium text-center max-w-3xl'>
+             Our work is more than stone and design, it’s about preserving memories, offering families comfort, and creating lasting tributes that stand with dignity for generations. Every piece we make is guided by quality, durability, and respect for the people it represents.
+            </p>
+
+            <p className='text-lg lg:text-xl text-black/70 font-medium text-center max-w-3xl'>
+                Today, we continue to blend tradition with modern design, ensuring that each memorial tells a story of love, legacy, and remembrance.
+            </p>
+
+            
         </div>
 
         {/* Core Values and Customized Service */}
@@ -137,7 +146,7 @@ const page = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 mt-10'>
                 <div className='flex flex-col gap-4'>
                     <h2 className='text-xl text-black/90 font-medium'>Mission</h2>
-                    <p className='text-gray-700 font-medium'>To provide compassionate, personalized memorial services that honor the memory of your loved ones with dignity and respect.</p>
+                    <p className='text-gray-700 font-medium'>Our mission is to design and install tombstones, gravestones, headstones, and plaques with unmatched craftsmanship and respect, helping families preserve memories and celebrate lives through enduring tributes.</p>
                 </div>
                 <div className='flex flex-col gap-4'>
                     <h2 className='text-xl text-black/90 font-medium'>Vission</h2>
