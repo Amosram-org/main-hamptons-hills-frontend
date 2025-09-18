@@ -8,7 +8,7 @@ const mockPosts: MemorialPost[] = [
     excerpt: 'A guide to selecting the perfect granite material that will withstand the test of time and elements.',
     content: ' Granite has been the material of choice for memorials for centuries due to its exceptional durability and beauty. This comprehensive guide covers the different types of granite suitable for headstones, from absolute black to mahogany and blue pearl varieties. Learn about polish levels, thickness options, and how to select the right granite that will withstand weather elements while maintaining its beauty for generations to come.',
     slug: 'choosing-granite-headstones',
-    imageUrl: images.productImg1.src,
+    imageUrl: "/images/blog-img1.png",
     date: 'September 3, 2025',
     author: 'Hamptons Hills',
     readTime: '5 min read',
