@@ -97,7 +97,7 @@ export const allProducts: Product[] = [
       category: "Tombstones & Gravestones",
       subCategory: "Tombstones",
       price: 1200,
-      imageUrl: '/images/Coffee-brown-black-granite-on-gray-base.png',
+      imageUrl: '/images/coffee-brown-black-granite-on-gray-base.png',
       material: "Granite",
       size: "24\" x 12\" x 4\"",
       installationIncluded: true,
