@@ -31,9 +31,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {/* <span className="text-base font-bold text-gray-900">
             KSH {product.price.toLocaleString()}
           </span> */}
-          <span className="text-xs text-gray-500">
+          {/* <span className="text-xs text-gray-500">
             {product.installationIncluded ? "Installation included" : ""}
-          </span>
+          </span> */}
         </div>
       </div>
     </Link>
