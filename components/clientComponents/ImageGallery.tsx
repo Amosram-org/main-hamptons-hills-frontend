@@ -1,19 +1,22 @@
+// components/ImageGallery.tsx
 'use client';
 
-import { useState } from 'react';
-import { X, ChevronLeft, ChevronRight, Share2 } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import { X, ChevronLeft, ChevronRight, Share2 } from 'lucide-react';
 
 interface GalleryImage {
   id: string;
-  src: string;   // relative path (e.g. /images/img1.jpg) or absolute URL
+  src: string;
   alt: string;
   title: string;
+  width?: number;
+  height?: number;
 }
 
 interface ImageGalleryProps {
   images: GalleryImage[];
-  businessNumber: string; // WhatsApp number in international format, e.g. "254712345678"
+  businessNumber: string; // WhatsApp number, e.g. "254712345678"
 }
 
 export default function ImageGallery({ images, businessNumber }: ImageGalleryProps) {
@@ -23,21 +26,28 @@ export default function ImageGallery({ images, businessNumber }: ImageGalleryPro
   const openModal = (image: GalleryImage, index: number) => {
     setSelectedImage(image);
     setCurrentIndex(index);
+    document.body.style.overflow = 'hidden'; // prevent background scroll
   };
 
-  const closeModal = () => setSelectedImage(null);
-
-  const goToPrevious = () => {
-    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-    setSelectedImage(images[newIndex]);
+  const closeModal = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'auto';
   };
 
-  const goToNext = () => {
-    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-    setSelectedImage(images[newIndex]);
-  };
+  const navigate = useCallback(
+    (direction: 'prev' | 'next') => {
+      if (!selectedImage) return;
+
+      const newIndex =
+        direction === 'prev'
+          ? (currentIndex - 1 + images.length) % images.length
+          : (currentIndex + 1) % images.length;
+
+      setSelectedImage(images[newIndex]);
+      setCurrentIndex(newIndex);
+    },
+    [currentIndex, images, selectedImage]
+  );
 
   const requestProductOnWhatsApp = (image: GalleryImage) => {
     const imageUrl = image.src.startsWith('http')
@@ -46,16 +56,30 @@ export default function ImageGallery({ images, businessNumber }: ImageGalleryPro
 
     const message = `Hello! I'm interested in this product: ${image.title}\n\nProduct Image: ${imageUrl}`;
     const encodedMessage = encodeURIComponent(message);
-
     const whatsappUrl = `https://wa.me/${businessNumber}?text=${encodedMessage}`;
+
     window.open(whatsappUrl, '_blank');
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowLeft') goToPrevious();
-    if (e.key === 'ArrowRight') goToNext();
-  };
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+      switch (e.key) {
+        case 'Escape':
+          closeModal();
+          break;
+        case 'ArrowLeft':
+          navigate('prev');
+          break;
+        case 'ArrowRight':
+          navigate('next');
+          break;
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [navigate, selectedImage]);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -64,20 +88,22 @@ export default function ImageGallery({ images, businessNumber }: ImageGalleryPro
         {images.map((image, index) => (
           <div
             key={image.id}
-            className="relative group cursor-pointer transform transition-transform hover:scale-105"
+            className="relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-lg cursor-zoom-in group"
             onClick={() => openModal(image, index)}
           >
-            <div className="aspect-square overflow-hidden rounded-lg bg-gray-200">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={400}
-                height={400}
-                className="h-full w-full object-cover object-center transition-opacity group-hover:opacity-75"
-              />
-            </div>
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg" />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={image.width || 400}
+              height={image.height || 400}
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                shimmer(image.width || 400, image.height || 400)
+              )}`}
+            />
+            {/* Title Overlay */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
               <p className="text-white text-sm font-medium truncate">{image.title}</p>
             </div>
           </div>
@@ -86,72 +112,83 @@ export default function ImageGallery({ images, businessNumber }: ImageGalleryPro
 
       {/* Modal */}
       {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-          onClick={closeModal}
-          onKeyDown={handleKeyDown}
-          tabIndex={0}
-        >
-          <div
-            className="relative max-w-4xl max-h-full w-full"
-            onClick={(e) => e.stopPropagation()}
+        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+          {/* Close Button */}
+          <button
+            onClick={closeModal}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10 bg-white/20 rounded-full p-1 cursor-pointer"
           >
-            {/* Close */}
-            <button
-              onClick={closeModal}
-              className="absolute -top-2 right-0 text-white hover:text-gray-300 transition-colors z-10 cursor-pointer bg-white/20 rounded-full p-1 m-2"
-            >
-              <X size={32} />
-            </button>
+            <X size={28} />
+          </button>
 
-            {/* Navigation */}
-            <button
-              onClick={goToPrevious}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all"
-            >
-              <ChevronLeft size={32} />
-            </button>
+          {/* Prev */}
+          <button
+            onClick={() => navigate('prev')}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 cursor-pointer"
+          >
+            <ChevronLeft size={32} />
+          </button>
 
-            <button
-              onClick={goToNext}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all"
-            >
-              <ChevronRight size={32} />
-            </button>
+          {/* Image & Info */}
+          <div className="flex flex-col items-center">
+            <Image
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              width={800}
+              height={800}
+              className="max-w-full max-h-[70vh] object-contain rounded-lg"
+              priority
+            />
 
-            {/* Image & Info */}
-            <div className="flex flex-col items-center">
-              <Image
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                width={800}
-                height={800}
-                className="max-w-full max-h-[70vh] object-contain rounded-lg"
-              />
-
-              <div className="bg-white rounded-lg mt-4 p-6 w-full max-w-md">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{selectedImage.title}</h3>
-                <p className="text-gray-600 mb-4">
-                  Click below to request this product on WhatsApp
-                </p>
-
-                <button
-                  onClick={() => requestProductOnWhatsApp(selectedImage)}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
-                >
-                  <Share2 size={20} />
-                  Request this Product on WhatsApp
-                </button>
-              </div>
+            <div className="bg-white rounded-lg mt-4 p-6 w-full max-w-md">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{selectedImage.title}</h3>
+              <p className="text-gray-600 mb-4">
+                Click below to request this product on WhatsApp
+              </p>
+              <button
+                onClick={() => requestProductOnWhatsApp(selectedImage)}
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2"
+              >
+                <Share2 size={20} />
+                Request this Product on WhatsApp
+              </button>
             </div>
+          </div>
 
-            {/* Counter */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
-              {currentIndex + 1} / {images.length}
-            </div>
+          {/* Next */}
+          <button
+            onClick={() => navigate('next')}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 cursor-pointer"
+          >
+            <ChevronRight size={32} />
+          </button>
+
+          {/* Counter */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
+            {currentIndex + 1} / {images.length}
           </div>
         </div>
       )}
     </div>
   );
 }
+
+// --- Shimmer Effect Helpers ---
+const shimmer = (w: number, h: number) => `
+<svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <linearGradient id="g">
+      <stop stop-color="#333" offset="20%" />
+      <stop stop-color="#222" offset="50%" />
+      <stop stop-color="#333" offset="70%" />
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="#333" />
+  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite" />
+</svg>`;
+
+const toBase64 = (str: string) =>
+  typeof window === 'undefined'
+    ? Buffer.from(str).toString('base64')
+    : window.btoa(str);

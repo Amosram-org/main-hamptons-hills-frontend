@@ -24,12 +24,11 @@ const page = () => {
 export default page
 
 const images = [
-  { id: "1", src: "/images/black-granito-tiles-and-granite-headstone.png", alt: "Granite Tombstone", title: "Granite Tombstone" },
-  { id: "2", src: "/images/Double-slab-headstone-without-base..png", alt: "Granite Tombstone", title: "Granite Tombstone" },
-  { id: "3", src: "/images/black-granito-tiles-and-granite-headstone.png", alt: "Granite Tombstone", title: "Granite Tombstone" },
-  { id: "4", src: "/images/black-granito-tiles-and-granite-headstone.png", alt: "Granite Tombstone", title: "Granite Tombstone" },
-  { id: "5", src: "/images/black-granito-tiles-and-granite-headstone.png", alt: "Granite Tombstone", title: "Granite Tombstone" },
-  { id: "6", src: "/images/black-granito-tiles-and-granite-headstone.png", alt: "Granite Tombstone", title: "Granite Tombstone" },
-  { id: "7", src: "/images/black-granito-tiles-and-granite-headstone.png", alt: "Granite Tombstone", title: "Granite Tombstone" },
+  { 
+    id: "1", 
+    src: "/images/black-granito-tiles-and-granite-headstone.png", 
+    alt: "Granite Tombstone", 
+    title: "Granite Tombstone" 
+},
 
 ];
