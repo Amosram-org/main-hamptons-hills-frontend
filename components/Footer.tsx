@@ -83,7 +83,7 @@ const Footer = () => {
       </div>
       <hr className='w-full h-[0.2px] border-none bg-gray-700'/>
       <div className='flex items-center justify-center text-white/60 text-sm py-5'>
-        <p>&copy;{year} Hamptons Hills, All Rights Reserved.</p>
+        <p>&copy; {year} Hamptons Hills. All Rights Reserved.</p>
       </div>
     </div>
   )

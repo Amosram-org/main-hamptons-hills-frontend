@@ -45,6 +45,12 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   const encodedMessage = encodeURIComponent(whatsappMessage)
   const whatsappUrl = `https://wa.me/+${adminPhoneNumber}?text=${encodedMessage}`
 
+    // WhatsApp message template for customization inquiry
+    const whatsappMessageCustomize = `Hello, I'm interested in customized services. Could you please provide more information?`
+    // URL-encode the message
+    const encodedMessageForCustomize = encodeURIComponent(whatsappMessageCustomize)
+    const whatsappUrl2 = `https://wa.me/+${adminPhoneNumber}?text=${encodedMessageForCustomize}`
+
   return (
     <section className='bg-black w-full min-h-screen pt-16 '>
         <div className="bg-gray-50">
@@ -74,11 +80,11 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                         {/* <span className="text-2xl font-semibold text-gray-800">
                         KSH {product.price.toLocaleString()}
                         </span> */}
-                        {product.installationIncluded && (
+                        {/* {product.installationIncluded && (
                         <span className="ml-3 rounded bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
                             Installation Included
                         </span>
-                        )}
+                        )} */}
                     </div>
                     </div>
 
@@ -97,12 +103,12 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                         <div>
 
                         </div>
-                        {product.warranty && (
+                        {/* {product.warranty && (
                         <div>
                             <h3 className="text-sm font-medium text-gray-500">Warranty</h3>
                             <p className="text-sm text-gray-900">{product.warranty}</p>
                         </div>
-                        )}
+                        )} */}
                     </div>
                     </div>
 
@@ -132,7 +138,11 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                             Request This Product
                         </Link>
                         
-                        <Link href='/#customized-service' className="flex-1 rounded-full border border-gray-300 bg-white px-6 py-3 text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 text-center font-medium">
+                        <Link 
+                            href={whatsappUrl2}     
+                            target="_blank"
+                            rel="noopener noreferrer" 
+                            className="flex-1 rounded-full border border-gray-300 bg-white px-6 py-3 text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 text-center font-medium">
                             Contact About Customization
                         </Link>
                     </div>

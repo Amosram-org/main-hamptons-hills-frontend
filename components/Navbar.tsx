@@ -18,6 +18,7 @@ const Navbar = () => {
             <Link className='hover:underline transition duration-150 ease-out' href='/our-services'>Services</Link>
             <Link className='hover:underline transition duration-150 ease-out' href="/#about-us">About</Link>
             <Link className='hover:underline transition duration-150 ease-out' href="/#blogs">Blogs</Link>
+            <Link className='hover:underline transition duration-150 ease-out' href="/product-gallery">Gallery</Link>
             <Link className='hover:underline transition duration-150 ease-out' href="/#contact-us">Contact</Link>
         </nav>
 

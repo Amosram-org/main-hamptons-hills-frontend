@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { ProductCard } from "@/components/ProductCard";
 import { getAllProducts } from '@/data/product';
-import { CiFilter } from "react-icons/ci";
 
 const PRODUCTS_PER_PAGE = 8;
 
@@ -17,7 +16,6 @@ export default function AllProductsPage() {
   const allProducts = getAllProducts();
   const [visibleCount, setVisibleCount] = useState(PRODUCTS_PER_PAGE);
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   // Filter products based on selected category
   const filteredProducts = selectedCategory === 'All' 
@@ -34,11 +32,6 @@ export default function AllProductsPage() {
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setVisibleCount(PRODUCTS_PER_PAGE); // Reset to first page when changing category
-    setIsFilterOpen(false); // Close dropdown after selection
-  };
-
-  const toggleFilter = () => {
-    setIsFilterOpen(prev => !prev);
   };
 
   return (
@@ -50,79 +43,65 @@ export default function AllProductsPage() {
         </p>
       </div>
 
-      {/* Filter Section */}
-      <div className="bg-white pt-8">
+      <div className="bg-white py-20">
         <div className="mx-auto px-4 lg:px-16 w-full">
-          <div className="flex flex-col items-center lg:items-end relative">
-            {/* Filter Button */}
-            <button
-              onClick={toggleFilter}
-              className="flex items-center gap-2 px-6 py-1 border border-black  text-black font-medium rounded-2xl transition-colors cursor-pointer"
-            >
-              <CiFilter className="w-5 h-5" />
-              Filter by Category
-            </button>
-
-            {/* Dropdown Menu */}
-            {isFilterOpen && (
-              <div className="mt-4 bg-white border border-gray-200 rounded-lg shadow-xl p-4 w-full max-w-md absolute top-full right-0 z-10">
-                <div className="grid grid-cols-1 gap-2">
-                  {CATEGORIES.map((category) => (
-                    <button
-                      key={category}
-                      onClick={() => handleCategoryChange(category)}
-                      className={`px-4 py-3 text-left rounded-md transition-colors cursor-pointer ${
-                        selectedCategory === category
-                          ? 'bg-black text-white font-medium'
-                          : 'text-gray-700 hover:bg-gray-100'
-                      }`}
-                    >
-                      {category}
-                    </button>
-                  ))}
-                </div>
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/*Categories section on the Left */}
+            <aside className="w-full lg:w-1/4">
+              <div className="flex lg:flex-col gap-3 bg-gray-200 p-4 rounded-md">
+                {CATEGORIES.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => handleCategoryChange(category)}
+                    className={`px-4 py-2 rounded-md transition-colors cursor-pointer w-full text-left ${
+                      selectedCategory === category
+                        ? 'bg-black text-white font-medium'
+                        : 'text-gray-700 hover:bg-gray-100'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
               </div>
-            )}
+              <p className="text-gray-600 mt-6 text-sm">
+                {selectedCategory === 'All' 
+                  ? `Showing all ${filteredProducts.length} products`
+                  : `Showing ${filteredProducts.length} product${filteredProducts.length !== 1 ? 's' : ''} in ${selectedCategory}`}
+              </p>
+            </aside>
 
-            {/* Selected Category Info */}
-            <p className="text-center text-gray-600 mt-4">
-              {selectedCategory === 'All' 
-                ? `Showing all ${filteredProducts.length} products`
-                : `Showing ${filteredProducts.length} product${filteredProducts.length !== 1 ? 's' : ''} in ${selectedCategory}`
-              }
-            </p>
+            {/* Products Grid */}
+            <div className="flex-1">
+              {filteredProducts.length > 0 ? (
+                <>
+                  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+                    {visibleProducts.map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
+                  </div>
+
+                  {hasMoreProducts && (
+                    <div className="mt-12 text-center">
+                      <button
+                        onClick={loadMore}
+                        className="px-6 py-2 bg-black text-white rounded-full hover:bg-black/90 transition-colors cursor-pointer"
+                      >
+                        Load More
+                      </button>
+                      <p className="mt-2 text-sm text-gray-500">
+                        Showing {visibleProducts.length} of {filteredProducts.length} products
+                      </p>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-gray-500 text-lg">No products found in this category.</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className='mx-auto px-4 lg:px-16 pt-8 pb-12 bg-white'>
-        {filteredProducts.length > 0 ? (
-          <>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {visibleProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-
-            {hasMoreProducts && (
-              <div className="mt-12 text-center">
-                <button
-                  onClick={loadMore}
-                  className="px-6 py-2 bg-black text-white rounded-full hover:bg-black/90 transition-colors cursor-pointer"
-                >
-                  Load More
-                </button>
-                <p className="mt-2 text-sm text-gray-500">
-                  Showing {visibleProducts.length} of {filteredProducts.length} products
-                </p>
-              </div>
-            )}
-          </>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No products found in this category.</p>
-          </div>
-        )}
       </div>
     </section>
   );
