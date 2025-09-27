@@ -25,7 +25,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     return notFound()
   }
 
-  const adminPhoneNumber: number = 254793810819;
+  const adminPhoneNumber: number = 254721462076;
 
   // WhatsApp message with product image
  const imageUrl = product.imageUrl.startsWith('http')
