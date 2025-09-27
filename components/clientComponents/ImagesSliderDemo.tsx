@@ -13,7 +13,7 @@ export function ImagesSliderDemo() {
     "/images/bg-slider-5.webp",
   ];
   return (
-    <ImagesSlider className="h-[40rem] lg:h-screen 2xl:h-[40rem]" images={images}>
+    <ImagesSlider className="min-h-screen lg:h-screen py-20 lg:py-0 2xl:h-[40rem]" images={images}>
       <motion.div
         initial={{
           opacity: 0,
@@ -32,7 +32,7 @@ export function ImagesSliderDemo() {
           Honoring Memories 
             <br /> with Dignity
         </motion.p>
-        <motion.p className="font-bold text-xl text-center py-4 max-w-[80vw] text-white ">
+        <motion.p className="font-bold text-xl text-center py-4 lg:max-w-[80vw] text-white px-4">
              Welcome to Tombstones and Gravestones for sale in Nairobi Kenya. We are dedicated to crafting timeless tombstones, gravestones, headstones, and memorial plaques with precision, dignity, and care. Every piece we create is more than stone, it is a lasting tribute to cherished lives and memories.
 
             With a focus on quality, durability, and respectful design, we walk with families through the process of honoring their loved ones in a meaningful and enduring way.

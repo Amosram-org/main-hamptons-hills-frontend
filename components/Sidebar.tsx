@@ -7,6 +7,8 @@ import { TbGrave2 } from "react-icons/tb";
 import { GrStatusUnknown } from "react-icons/gr";
 import { MdContactPage, MdHomeRepairService } from "react-icons/md";
 import { TbLogs } from "react-icons/tb";
+import { GrGallery } from "react-icons/gr";
+
 
 const Sidebar = () => {
   const { isSidebarOpen, toggleSidebar } = useSidebar();
@@ -58,6 +60,14 @@ const Sidebar = () => {
         >
           <GrStatusUnknown />
           <span>About Us</span>
+        </Link>
+        <Link
+          onClick={toggleSidebar}
+          href="/product-gallery"
+          className="px-6 py-2 text-lg font-medium hover:bg-gray-700 transition-colors flex items-center gap-3"
+        >
+          <GrGallery />
+          <span>Our Gallery</span>
         </Link>
         <Link
           onClick={toggleSidebar}

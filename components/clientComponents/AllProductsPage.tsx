@@ -51,7 +51,7 @@ export default function AllProductsPage() {
           <div className="flex flex-col lg:flex-row gap-8">
             {/*Categories section on the Left */}
             <aside className="w-full lg:w-1/4">
-              <div className="flex lg:flex-col gap-3 bg-gray-200 p-4 rounded-md">
+              <div className="flex flex-col gap-3 bg-gray-200 p-4 rounded-md">
                 {CATEGORIES.map((category) => (
                   <button
                     key={category}
