@@ -5,57 +5,79 @@ import Link from 'next/link'
 import { FaHome  } from "react-icons/fa";
 import { TbGrave2 } from "react-icons/tb";
 import { GrStatusUnknown } from "react-icons/gr";
-import { MdContactPage } from "react-icons/md";
-import { MdHomeRepairService } from "react-icons/md";
+import { MdContactPage, MdHomeRepairService } from "react-icons/md";
 import { TbLogs } from "react-icons/tb";
 
-
-
-
 const Sidebar = () => {
-    const {isSidebarOpen, toggleSidebar} = useSidebar();
-  return (
-   <div className={`fixed top-0 left-0 bg-black w-full min-h-screen ${
-          isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
-        } transition-transform duration-500 ease-in-out z-20` }>
-    <div className='py-4 px-6 flex items-center justify-between border-b border-gray-700'>
-          <Link href="/" className='text-xl font-semibold'>
-          <h1 className='flex items-center gap-0.5 text-sm '>
-            HAMPTONS HILLS
-          </h1>
-        </Link>
-        <CloseBar/>
-    </div>
+  const { isSidebarOpen, toggleSidebar } = useSidebar();
 
-    <nav className='pt-6'>
-        <Link onClick={toggleSidebar} href="/" className=' px-6 py-2 text-lg font-medium hover:bg-gray-500 transition-colors flex items-center gap-3'>
-          <FaHome/>
+  return (
+    <div
+      className={`fixed top-0 left-0 bg-black text-white w-full min-h-screen ${
+        isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
+      } transition-transform duration-500 ease-in-out z-50`} // bumped z-index above navbar
+    >
+      {/* Header */}
+      <div className="py-4 px-6 flex items-center justify-between border-b border-gray-700">
+        <Link href="/" className="text-xl font-semibold">
+          <h1 className="flex items-center gap-0.5 text-sm">HAMPTONS HILLS</h1>
+        </Link>
+        <CloseBar />
+      </div>
+
+      {/* Navigation */}
+      <nav className="pt-6 flex flex-col gap-1">
+        <Link
+          onClick={toggleSidebar}
+          href="/"
+          className="px-6 py-2 text-lg font-medium hover:bg-gray-700 transition-colors flex items-center gap-3"
+        >
+          <FaHome />
           <span>Home</span>
         </Link>
-        <Link onClick={toggleSidebar} href="/allProducts" className=' px-6 py-2 text-lg font-medium hover:bg-gray-500 transition-colors flex items-center gap-3'>
-          <TbGrave2/>
+        <Link
+          onClick={toggleSidebar}
+          href="/allProducts"
+          className="px-6 py-2 text-lg font-medium hover:bg-gray-700 transition-colors flex items-center gap-3"
+        >
+          <TbGrave2 />
           <span>Products</span>
         </Link>
-        <Link onClick={toggleSidebar} href="/our-services" className=' px-6 py-2 text-lg font-medium hover:bg-gray-500 transition-colors flex items-center gap-3'>
-          <MdHomeRepairService/>
+        <Link
+          onClick={toggleSidebar}
+          href="/our-services"
+          className="px-6 py-2 text-lg font-medium hover:bg-gray-700 transition-colors flex items-center gap-3"
+        >
+          <MdHomeRepairService />
           <span>Services</span>
         </Link>
-        <Link onClick={toggleSidebar} href="/" className=' px-6 py-2 text-lg font-medium hover:bg-gray-500 transition-colors flex items-center gap-2'>
-          <GrStatusUnknown/>
+        <Link
+          onClick={toggleSidebar}
+          href="/#about-us"
+          className="px-6 py-2 text-lg font-medium hover:bg-gray-700 transition-colors flex items-center gap-3"
+        >
+          <GrStatusUnknown />
           <span>About Us</span>
         </Link>
-        <Link onClick={toggleSidebar} href="/#blogs" className=' px-6 py-2 text-lg font-medium hover:bg-gray-500 transition-colors flex items-center gap-2'>
-          <TbLogs/>
+        <Link
+          onClick={toggleSidebar}
+          href="/#blogs"
+          className="px-6 py-2 text-lg font-medium hover:bg-gray-700 transition-colors flex items-center gap-3"
+        >
+          <TbLogs />
           <span>Blogs</span>
         </Link>
-        <Link onClick={toggleSidebar} href="/#contact-us" className=' px-6 py-2 text-lg font-medium hover:bg-gray-500 transition-colors flex items-center gap-3'>
-          <MdContactPage/>
+        <Link
+          onClick={toggleSidebar}
+          href="/#contact-us"
+          className="px-6 py-2 text-lg font-medium hover:bg-gray-700 transition-colors flex items-center gap-3"
+        >
+          <MdContactPage />
           <span>Contact</span>
         </Link>
-      
-    </nav>
-   </div>
-  )
-}
+      </nav>
+    </div>
+  );
+};
 
-export default Sidebar
+export default Sidebar;

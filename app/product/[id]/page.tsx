@@ -28,19 +28,25 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   const adminPhoneNumber: number = 254793810819;
 
   // WhatsApp message with product image
+ const imageUrl = product.imageUrl.startsWith('http')
+    ? product.imageUrl
+    : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://hamptons-hills.vercel.app'}${product.imageUrl}`;
+
+  // WhatsApp message with product image
   const whatsappMessage = `Hello, I'm interested in this product:
-    
-    *Product Name:* ${product.name}
-    *Product ID:* ${product.id}
-    *Price:* $${product.price.toLocaleString()}
-    ${product.material ? `*Material:* ${product.material}\n` : ''}
-    ${product.size ? `*Dimensions:* ${product.size}\n` : ''}
-    Product Image:* ${product.imageUrl}
+
+  *Product Name:* ${product.name}
+  *Product ID:* ${product.id}
+  *Price:* $${product.price.toLocaleString()}
+  ${product.material ? `*Material:* ${product.material}\n` : ''}
+  ${product.size ? `*Dimensions:* ${product.size}\n` : ''}
+  *View The Product Image:* ${imageUrl}
 
     Could you please provide more information and availability?`
 
   const encodedMessage = encodeURIComponent(whatsappMessage)
   const whatsappUrl = `https://wa.me/+${adminPhoneNumber}?text=${encodedMessage}`
+  
 
   // Customization inquiry
   const whatsappMessageCustomize = `Hello, I'm interested in customized services. Could you please provide more information?`

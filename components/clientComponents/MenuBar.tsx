@@ -1,14 +1,32 @@
 'use client';
 
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { TbMenu } from "react-icons/tb";
 import { useSidebar } from '../../context/SidebarContext';
 
 const MenuBar = () => {
   const { toggleSidebar } = useSidebar();
-  return (
-    <TbMenu className='w-6 h-6 lg:hidden cursor-pointer' onClick={toggleSidebar} />
-  )
-}
+  const [scrolled, setScrolled] = useState(false);
 
-export default MenuBar
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <button
+      onClick={toggleSidebar}
+      className="lg:hidden rounded-md transition-colors cursor-pointer"
+      aria-label="Open menu"
+    >
+      <TbMenu
+        className={`w-7 h-7 transition-colors duration-300 ${
+          scrolled ? 'text-black' : 'text-white'
+        }`}
+      />
+    </button>
+  );
+};
+
+export default MenuBar;

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ProductCard } from "@/components/ProductCard";
 import { getAllProducts } from '@/data/product';
 
-const PRODUCTS_PER_PAGE = 8;
+const PRODUCTS_PER_PAGE = 9;
 
 const CATEGORIES = [
   'All',
@@ -36,12 +36,15 @@ export default function AllProductsPage() {
 
   return (
     <section className="bg-black">
-      <div className='py-12 pt-24 flex flex-col items-center gap-4 px-4'>
+      <div className='w-full min-h-[30vh] flex items-center gap-4 bg-black bg-[url(/images/about-main-page-bg.jpg)] bg-cover bg-center bg-no-repeat'>
+         <div className='w-full min-h-[30vh] py-12 pt-24 flex flex-col items-center gap-4 px-4 bg-black/20'>
         <h1 className="text-2xl md:text-3xl text-white font-semibold text-center">Our Products</h1>
-        <p className='text-white/80 text-center max-w-2xl'>
-          Explore our wide range of high-quality gravestones and tombstones, designed to honor and remember loved ones.
-        </p>
-      </div>
+            <h1 className="text-2xl md:text-3xl text-white font-semibold text-center"></h1>
+            <p className='text-white/80 text-center max-w-2xl'>
+              Explore our wide range of high-quality gravestones and tombstones, designed to honor and remember loved ones.
+            </p>
+        </div>
+       </div>
 
       <div className="bg-white py-20">
         <div className="mx-auto px-4 lg:px-16 w-full">

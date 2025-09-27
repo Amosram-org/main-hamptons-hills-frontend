@@ -35,12 +35,12 @@ export const allProducts: Product[] = [
 
     {
       id: "3",
-      name: "Gray black open top granite white pebbles and flowers",
-      description: "An elegant open-top granite memorial in gray and black, beautifully accented with white pebbles and flower arrangements. Designed to blend durability with grace, it creates a peaceful and timeless tribute.",
+      name: "Black Granite Upright Headstone with Single Slab and Base",
+      description: "A beautifully polished black granite upright headstone mounted on a single slab with a solid base. Elegant and durable, it offers a timeless tribute with a sleek finish that ensures lasting remembrance.",
       category: "Tombstones & Gravestones",
       subCategory: "Tombstones",
       price: 1200,
-      imageUrl: images.productImg4.src,
+      imageUrl: '/images/black-granite-upright-headstone-with-single-slab-and-base.png',
       material: "Granite",
       size: "24\" x 12\" x 4\"",
       installationIncluded: true,
@@ -62,28 +62,29 @@ export const allProducts: Product[] = [
       warranty: "10+ years against weathering",
       customizationOptions: ["Name", "Dates", "Symbols"]
     },
+ 
     {
       id: "5",
-      name: "Two step granito tiles with granite headstones",
-      description: "A stylish two-step granito tile design paired with a durable granite headstone. This elegant combination adds depth and character while providing a strong and lasting memorial.",
+      name: "Black Granite Upright Memorial Headstone with Double Slabs and Stepped Base",
+      description: "A premium black granite upright memorial headstone featuring a polished portrait engraving, golden cross inlay, and elegant inscriptions. Resting on double slanted slabs with a sturdy stepped granite base, this design combines strength, beauty, and timeless craftsmanship—offering a dignified and lasting tribute to a loved one.",
       category: "Tombstones & Gravestones",
       subCategory: "Tombstones",
       price: 1200,
-      imageUrl: images.productImg5.src,
+      imageUrl: '/images/black-granite-upright-memorial-headstone-with-double-slabs-and-stepped-base.png',
       material: "Granite",
       size: "24\" x 12\" x 4\"",
       installationIncluded: true,
-      warranty: "12+ years against weathering",
+      warranty: "10+ years against weathering",
       customizationOptions: ["Name", "Dates", "Symbols"]
     },
     {
       id: "6",
-      name: "White terrazo top black tile",
-      description: "A modern memorial design featuring a polished white terrazzo top contrasted with sleek black tiles. Built for durability and elegance, it offers a timeless tribute with a refined finish.",
+      name: "Black Granite Headstone with Double Slab and Base",
+      description: "A premium black granite headstone set on a double slab with a polished base. Designed with elegance and durability in mind, it features a sleek finish that provides a lasting and dignified tribute..",
       category: "Tombstones & Gravestones",
       subCategory: "Tombstones",
       price: 1200,
-      imageUrl: images.productImg6.src,
+      imageUrl: '/images/Black-Granite-Headstone-with-Double-Slab-and-Base.png',
       material: "Granite",
       size: "24\" x 12\" x 4\"",
       installationIncluded: true,
@@ -188,6 +189,51 @@ export const allProducts: Product[] = [
       size: "24\" x 12\" x 4\"",
       installationIncluded: true,
       warranty: "10+ years against weathering",
+      customizationOptions: ["Name", "Dates", "Symbols"]
+    },
+   
+       {
+      id: "14",
+      name: "White terrazo top black tile",
+      description: "A modern memorial design featuring a polished white terrazzo top contrasted with sleek black tiles. Built for durability and elegance, it offers a timeless tribute with a refined finish.",
+      category: "Tombstones & Gravestones",
+      subCategory: "Tombstones",
+      price: 1200,
+      imageUrl: images.productImg6.src,
+      material: "Granite",
+      size: "24\" x 12\" x 4\"",
+      installationIncluded: true,
+      warranty: "10+ years against weathering",
+      customizationOptions: ["Name", "Dates", "Symbols"]
+    },
+  
+    {
+      id: "15",
+      name: "Gray black open top granite white pebbles and flowers",
+      description: "An elegant open-top granite memorial in gray and black, beautifully accented with white pebbles and flower arrangements. Designed to blend durability with grace, it creates a peaceful and timeless tribute.",
+      category: "Tombstones & Gravestones",
+      subCategory: "Tombstones",
+      price: 1200,
+      imageUrl: images.productImg4.src,
+      material: "Granite",
+      size: "24\" x 12\" x 4\"",
+      installationIncluded: true,
+      warranty: "10+ years against weathering",
+      customizationOptions: ["Name", "Dates", "Symbols"]
+    },
+
+    {
+      id: "16",
+      name: "Two step granito tiles with granite headstones",
+      description: "A stylish two-step granito tile design paired with a durable granite headstone. This elegant combination adds depth and character while providing a strong and lasting memorial.",
+      category: "Tombstones & Gravestones",
+      subCategory: "Tombstones",
+      price: 1200,
+      imageUrl: images.productImg5.src,
+      material: "Granite",
+      size: "24\" x 12\" x 4\"",
+      installationIncluded: true,
+      warranty: "12+ years against weathering",
       customizationOptions: ["Name", "Dates", "Symbols"]
     },
    

@@ -1,5 +1,11 @@
 import ImageGallery from '@/components/clientComponents/ImageGallery';
 import React from 'react'
+import {Metadata} from 'next'
+
+export const metadata: Metadata = {
+  title: 'Product Gallery - Hamptons Hills',
+  description: 'Explore our wide range of high-quality gravestones and tombstones at Hamptons Hills. Find the perfect memorial to honor your loved ones.',
+};
 
 const page = () => {
   return (
@@ -26,9 +32,35 @@ export default page
 const images = [
   { 
     id: "1", 
+    src: "/images/black-granite-terrazo-base-and-red-gray-bricks.png", 
+    alt: "Black granite, terrazo base and red gray bricks", 
+    title: "Black granite, terrazo base and red gray bricks" 
+},
+  { 
+    id: "2", 
     src: "/images/black-granito-tiles-and-granite-headstone.png", 
     alt: "Granite Tombstone", 
     title: "Granite Tombstone" 
 },
+  { 
+    id: "3", 
+    src: "/images/Terrazzo-headstone.png", 
+    alt: "Granite Terrazzo headstone", 
+    title: "Granite Terrazzo headstone" 
+},
+  { 
+    id: "4", 
+    src: "/images/gray-black-open-top-granite-white-pebbles-and-flowers.png", 
+    alt: "Gray black open top granite white pebbles and flowers", 
+    title: "Gray black open top granite white pebbles and flowers" 
+},
+  
+  { 
+    id: "5", 
+    src: "/images/white-terrazo-top-black-tile.png", 
+    alt: "white Terrazo Top Black Tile", 
+    title: "white Terrazo Top Black Tile" 
+},
+  
 
 ];
