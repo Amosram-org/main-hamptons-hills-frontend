@@ -1,14 +1,11 @@
+export type ProductCategory = "Headstones & Plaques" | "Tombstones & Gravestones";
+
 export interface Product {
   id: string;
   name: string;
   description: string;
-  category: string;
-  subCategory?: string;
-  price: number;
-  imageUrl: string;
+  category: ProductCategory;
   material?: string;
-  size?: string;
-  installationIncluded?: boolean;
-  warranty?: string;
   customizationOptions?: string[];
+  imageUrl: string;
 }
