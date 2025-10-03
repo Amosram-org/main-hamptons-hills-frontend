@@ -1,26 +1,22 @@
 import { fetchProducts } from "@/lib/strapi"
 import { Product } from "@/types/product"
 
-let cachedProducts: Product[] | null = null
-
 export async function getAllProducts(): Promise<Product[]> {
-  if (!cachedProducts) {
-    cachedProducts = await fetchProducts()
-  }
-  return cachedProducts
+  return await fetchProducts() // ISR-enabled
 }
 
 export async function getProductById(id: string): Promise<Product | null> {
-  const products = await getAllProducts()
-  return products.find(p => p.id === id) || null
+  const products = await fetchProducts()
+  return products.find(p => String(p.id) === id) || null
 }
 
 export async function getProductsByCategory(category: string): Promise<Product[]> {
-  const products = await getAllProducts()
+  const products = await fetchProducts()
   return products.filter(p => p.category === category)
 }
 
 export async function getFeaturedProducts(): Promise<Product[]> {
-  const products = await getAllProducts()
-  return products.slice(0, 8) 
+  const products = await fetchProducts()
+  const featured = products.filter(p => p.featured)
+  return featured.length > 0 ? featured : products.slice(0, 8)
 }

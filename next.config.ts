@@ -5,13 +5,18 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "http",
-        hostname: "localhost", // or your server/domain name
-        port: "1337",          // Strapi default port
+        hostname: "localhost", // local Strapi dev
+        port: "1337",
         pathname: "/uploads/**",
       },
       {
         protocol: "https",
-        hostname: "images.unsplash.com", // keep Unsplash too
+        hostname: "images.unsplash.com", // Unsplash
+      },
+      {
+        protocol: "https",
+        hostname: "hamptons-hills-strapi-backend.onrender.com",
+        pathname: "/uploads/**",
       },
     ],
   },

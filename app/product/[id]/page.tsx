@@ -10,8 +10,14 @@ export const metadata: Metadata = {
   description: 'Detailed view of our exclusive products at Hamptons Hills.',
 };
 
-export default async function ProductPage({ params }: { params: { id: string } }) {
-  const { id } = params
+type PageProps = {
+  params: {
+    id: string
+  }
+}
+
+export default async function ProductPage({ params }: PageProps) {
+  const { id } = await params;
 
   const product = await getProductById(id)
 
