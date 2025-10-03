@@ -11,10 +11,8 @@ export const metadata: Metadata = {
 };
 
 type PageProps = {
-  params: {
-    id: string
-  }
-}
+  params: Promise<{ id: string }>;
+};
 
 export default async function ProductPage({ params }: PageProps) {
   const { id } = await params;
