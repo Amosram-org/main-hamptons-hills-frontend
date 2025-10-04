@@ -19,7 +19,7 @@ const AboutUs = () => {
             </div> 
             <div className='flex-1  order-1 lg:order-2 '>
               <Image
-                src={images.aboutImg}
+                src={images.aboutImg || '/images/about-img.webp'}
                 alt="About Us"
                 className='w-full h-auto object-cover rounded-2xl'
               />

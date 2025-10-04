@@ -81,7 +81,7 @@ const data: ServiceCardData[] = [
     title: "Professional, Respectful, Nationwide Installation",
     src: '/images/installation-service.png',
     description: "Our installation process is handled with utmost professionalism and respect. From site preparation to secure placement, we ensure each tombstone or memorial plaque is firmly and accurately installed. We use quality materials and tested methods to guarantee stability and durability, while treating every resting place with the dignity it deserves.",
-    contentImage: images.tombstonesService.src,
+    contentImage: "/images/instalation-service.png",
     features: [
       "Professional Site Preparation",
       "Secure & Accurate Placement.",
@@ -95,7 +95,7 @@ const data: ServiceCardData[] = [
     title: "Where Artistry Meets Lasting Tribute",
     src: "/images/headstone-design-service.png",
     description: "We craft and design headstones with precision and care, combining skilled workmanship with thoughtful design. Every piece is tailored to reflect the life, values, and memory of the individual being honored. From selecting quality stone to engraving details and finishes, our team ensures each headstone is both durable and deeply meaningful.",
-    contentImage: images.gravestonesService.src,
+    contentImage: "/images/headstone-crafting-service.png",
     features: [
       "Personalised Designs",
       "Skilled Workmanship",
@@ -109,7 +109,7 @@ const data: ServiceCardData[] = [
     title: "Elegant, Lasting Engravings",
     src: '/images/inscription-service.png',
     description: "Beautifully crafted headstones that serve as lasting tributes to cherished memories.",
-    contentImage: images.headstonesService.src,
+    contentImage: "/images/inscription-service.png",
     features: [
       "Personalized Engravings",
       "Lasting Durability",
@@ -120,9 +120,9 @@ const data: ServiceCardData[] = [
   {
     category: "TOMBSTONES DESIGNS",
     title: "Where Tradition Meets Compassion in Design",
-    src: images.plaquesService.src,
+    src: "/images/tombstones-design-service.png",
     description: " Every tombstone begins with listening. We take time to understand each family’s wishes, traditions, and ideas. From there, our team designs and customizes a memorial that reflects their vision,  choosing the right stone, shape, and inscription. Once the family approves the design, skilled craftsmen bring it to life with precise carving and finishing. The completed piece is then carefully installed at the gravesite, with respect and attention to detail. Even after installation, we remain available to guide families on care and maintenance, ensuring the memorial stands with dignity for years to come.",
-    contentImage: images.plaquesService.src,
+    contentImage: "/images/tombstones-design-service.png",
     features: [
       "Personalized Consultation",
       "Custom Design",
@@ -135,7 +135,7 @@ const data: ServiceCardData[] = [
     title: "Where Tradition Meets Compassion in Design",
     src: "/images/photos-service.png",
     description: " Our photos are crafted to reflect the true beauty of every memorial. With high-quality resolution and accurate color balance, each image brings out fine details clearly. They are produced to last—whether in print or digital form—ensuring durability over time. Every shot captures inscriptions and finishes with clarity, so families can see the workmanship exactly as it is.",
-    contentImage: images.plaquesService.src,
+    contentImage: "/images/photos-service.png",
     features: [
       "True-to-Life Representation",
       "Detail-Focused",
