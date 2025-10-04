@@ -92,7 +92,7 @@ export default function ImageGallery({ images, businessNumber }: ImageGalleryPro
             onClick={() => openModal(image, index)}
           >
             <Image
-              src={image.src}
+              src={image.src || '/images/logo-white.png'}
               alt={image.alt}
               width={image.width || 400}
               height={image.height || 400}

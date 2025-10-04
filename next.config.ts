@@ -5,18 +5,23 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "http",
-        hostname: "localhost", // local Strapi dev
+        hostname: "localhost", //Local Strapi (dev)
         port: "1337",
         pathname: "/uploads/**",
       },
       {
         protocol: "https",
-        hostname: "images.unsplash.com", // Unsplash
+        hostname: "images.unsplash.com", //Unsplash (optional)
       },
       {
         protocol: "https",
-        hostname: "hamptons-hills-strapi-backend.onrender.com",
+        hostname: "hamptons-hills-strapi-backend.onrender.com", //Your Strapi backend (Render)
         pathname: "/uploads/**",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com", // Cloudinary CDN domain
+        pathname: "/**", // allow all Cloudinary images
       },
     ],
   },

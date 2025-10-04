@@ -7,12 +7,13 @@ import Footer from "@/components/Footer";
 
 const inter = Inter({
   variable: '--font-inter',
-  subsets: ['latin',]
+  subsets: ['latin',],
+  display: "swap",
 })
 
 
 export const metadata: Metadata = {
-  title: "Home - Hamptons Hills",
+  title: "Hamptons Hills - Tombstones and gravestones for sale in nairobi.",
   description: "A modern kitchen products and gravestones and tombstones manufacturer",
 };
 

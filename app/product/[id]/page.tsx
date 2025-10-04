@@ -66,7 +66,7 @@ export default async function ProductPage({ params }: PageProps) {
             <div className="space-y-4">
               <div className="relative aspect-square overflow-hidden rounded-lg bg-white shadow-md">
                 <Image
-                  src={imageUrl}
+                  src={imageUrl || '/images/logo-white.png'}
                   alt={product.name}
                   fill
                   className="object-cover"
