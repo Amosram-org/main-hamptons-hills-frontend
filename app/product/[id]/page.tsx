@@ -32,7 +32,7 @@ export default async function ProductPage({ params }: PageProps) {
       ? relatedProducts.filter((p) => p.id !== id)
       : featuredProducts.filter((p) => p.id !== id)
 
-  const adminPhoneNumber: number = 254793810819
+  const adminPhoneNumber: number = 254721462076
 
   // Image URL handling
   const imageUrl = product.imageUrl?.startsWith('http')

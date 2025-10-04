@@ -19,8 +19,10 @@ const AboutUs = () => {
             </div> 
             <div className='flex-1  order-1 lg:order-2 '>
               <Image
-                src={images.aboutImg || '/images/about-img.webp'}
+                src='https://res.cloudinary.com/dellpra8s/image/upload/v1759583895/about_img_bdb817f2b8.webp'
                 alt="About Us"
+                width={600}
+                height={400}
                 className='w-full h-auto object-cover rounded-2xl'
               />
             </div>
