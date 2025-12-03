@@ -8,7 +8,7 @@ import { TestimonialsCards } from '@/components/TestimonialsCards';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import { images } from '@/data';
 import React from 'react';
-import { getBlogPosts } from '@/data/blogData';
+import { getBlogPosts } from '@/sanity/lib/sanity';
 
 
 export default async function Home() {

@@ -1,4 +1,3 @@
-// components/ImageGallery.tsx
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -16,7 +15,7 @@ interface GalleryImage {
 
 interface ImageGalleryProps {
   images: GalleryImage[];
-  businessNumber: string; // WhatsApp number, e.g. "254712345678"
+  businessNumber: string;
 }
 
 export default function ImageGallery({ images, businessNumber }: ImageGalleryProps) {

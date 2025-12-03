@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getBlogPost, getBlogPosts } from '@/data/blogData';
+import { getBlogPost, getBlogPosts } from '@/sanity/lib/sanity';
 import MotionDiv from '@/components/ui/MotionDiv';
+import PortableTextContent from '@/components/blogs/PortableTextContent';
+import ShareButtons from '@/components/blogs/ShareButtons';
 
 // Define the expected params structure
 interface PageProps {
@@ -19,6 +21,9 @@ export default async function BlogPostPage(props: PageProps) {
   if (!post) {
     notFound();
   }
+
+  // Generate the full URL for sharing
+  const postUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://hamptonshills.com'}/blog/${post.slug}`;
 
   return (
     <div className="min-h-screen bg-white">
@@ -91,7 +96,7 @@ export default async function BlogPostPage(props: PageProps) {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mb-12"
         >
-          <div className="container mx-auto px-4 max-w-4xl">
+          <div className="container mx-auto px-4 max-w-3xl">
             <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden">
               <Image
                 src={post.imageUrl}
@@ -111,11 +116,14 @@ export default async function BlogPostPage(props: PageProps) {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="container mx-auto px-4 max-w-3xl"
         >
-          <div className="prose prose-lg max-w-none">
-            <p className='text-lg font-medium text-black/60'>
-              {post.content}
-            </p>    
-          </div>
+          <PortableTextContent content={post.content} />
+
+          {/* Share Buttons */}
+          <ShareButtons 
+            title={post.title}
+            url={postUrl}
+            excerpt={post.excerpt}
+          />
         </MotionDiv>
       </article>
     </div>
@@ -144,5 +152,17 @@ export async function generateMetadata(props: PageProps) {
   return {
     title: `${post.title} | Memorial Blog`,
     description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: [post.imageUrl],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.imageUrl],
+    },
   };
 }

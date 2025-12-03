@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { ProductCard } from "@/components/ProductCard";
-import { getAllProducts } from '@/data/product';
 import { Product } from '@/types/product';
+import { getProducts } from '@/sanity/lib/sanity';
 
 const PRODUCTS_PER_PAGE = 9;
 
@@ -11,7 +11,6 @@ const PRODUCTS_PER_PAGE = 9;
 const DEFAULT_CATEGORIES = [
   'All',
   'Headstones & Plaques',
-  'Tombstones & Gravestones',
 ];
 
 export default function AllProductsPage() {
@@ -23,7 +22,7 @@ export default function AllProductsPage() {
   useEffect(() => {
     async function loadProducts() {
       setLoading(true);
-      const products = await getAllProducts(); //fetching from Strapi
+      const products = await getProducts(); //fetching from Strapi
       setAllProducts(products);
       setLoading(false);
     }

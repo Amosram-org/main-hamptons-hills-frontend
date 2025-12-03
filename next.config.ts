@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
         hostname: "res.cloudinary.com", // Cloudinary CDN domain
         pathname: "/**", // allow all Cloudinary images
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

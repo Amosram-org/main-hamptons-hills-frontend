@@ -1,11 +1,10 @@
-// src/components/blog/BlogSection.tsx
 'use client';
 
 import BlogCard from './BlogCard';
-import { MemorialPost } from '@/types/memorialPost';
+import { BlogPost } from '@/sanity/lib/sanity';
 
 interface BlogSectionProps {
-  posts: MemorialPost[];
+  posts: BlogPost[];
   title?: string;
   description?: string;
 }
@@ -41,5 +40,4 @@ export default function BlogSection({
         )}
       </div>
     </section>
-  );
-}
+  )};

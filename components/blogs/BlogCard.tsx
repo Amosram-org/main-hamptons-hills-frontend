@@ -3,11 +3,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { MemorialPost } from '@/types/memorialPost';
+import { BlogPost } from '@/sanity/lib/sanity';
 import MotionDiv from '../ui/MotionDiv';
 
 interface BlogCardProps {
-  post: MemorialPost;
+  post: BlogPost;
   index: number;
 }
 

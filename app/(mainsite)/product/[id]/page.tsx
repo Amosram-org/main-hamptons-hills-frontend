@@ -1,64 +1,63 @@
-import { getProductById, getFeaturedProducts, getProductsByCategory } from '@/data/product'
+import { getProductByDocumentId, getFeaturedProducts, getProductsByCategory } from '@/sanity/lib/sanity'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { ProductCard } from '@/components/ProductCard'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import type { Product } from '@/types/product'
 
-export const metadata: Metadata = {
-  title: 'Product Details - Hamptons Hills',
-  description: 'Detailed view of our exclusive products at Hamptons Hills.',
-};
-
+// Updated PageProps to use Promise for params
 type PageProps = {
-  params: Promise<{ id: string }>;
-};
+  params: Promise<{ id: string }>
+}
 
-export default async function ProductPage({ params }: PageProps) {
-  const { id } = await params;
+export default async function ProductPage(props: PageProps) {
+  // Await the params promise
+  const params = await props.params;
+  const id = params.id;
 
-  const product = await getProductById(id)
-
-  if (!product) {
-    return notFound()
-  }
+  const product: Product | null = await getProductByDocumentId(id)
+  if (!product) return notFound()
 
   // Related products
-  const relatedProducts = await getProductsByCategory(product.category)
-  const featuredProducts = await getFeaturedProducts()
+  const relatedProducts: Product[] = await getProductsByCategory(product.category)
+  const featuredProducts: Product[] = await getFeaturedProducts()
 
-  const displayProducts =
+  const displayProducts: Product[] =
     relatedProducts.filter((p) => p.id !== id).length > 0
       ? relatedProducts.filter((p) => p.id !== id)
       : featuredProducts.filter((p) => p.id !== id)
 
-  const adminPhoneNumber: number = 254721462076
+  const adminPhoneNumber = 254793810819
 
   // Image URL handling
-  const imageUrl = product.imageUrl?.startsWith('http')
-    ? product.imageUrl
-    : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://hamptons-hills.vercel.app'}${product.imageUrl}`
+  const imageUrl =
+    product.imageUrl.startsWith('http')
+      ? product.imageUrl
+      : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://hamptons-hills.vercel.app'}${product.imageUrl}`
 
-  // WhatsApp message with product image
+  // WhatsApp message for product inquiry
   const whatsappMessage = `Hello, I'm interested in this product:
 
-  *Product Name:* ${product.name}
-  *Product ID:* ${product.id}
-  ${product.material ? `*Material:* ${product.material}\n` : ''}
-  *View The Product Image:* ${imageUrl}
+*Product Name:* ${product.name}
+*Product ID:* ${product.id}
+${product.material ? `*Material:* ${product.material}\n` : ''}
+*View The Product Image:* ${imageUrl}
 
-  Could you please provide more information and availability?`
+Could you please provide more information and availability?`
 
-  const encodedMessage = encodeURIComponent(whatsappMessage)
-  const whatsappUrl = `https://wa.me/+${adminPhoneNumber}?text=${encodedMessage}`
+  const whatsappUrl = `https://wa.me/+${adminPhoneNumber}?text=${encodeURIComponent(
+    whatsappMessage
+  )}`
 
-  // Customization inquiry
+  // WhatsApp message for customization inquiry
   const whatsappMessageCustomize = `Hello, I'm interested in customized services. Could you please provide more information?`
-  const encodedMessageForCustomize = encodeURIComponent(whatsappMessageCustomize)
-  const whatsappUrl2 = `https://wa.me/+${adminPhoneNumber}?text=${encodedMessageForCustomize}`
+  const whatsappUrl2 = `https://wa.me/+${adminPhoneNumber}?text=${encodeURIComponent(
+    whatsappMessageCustomize
+  )}`
 
   return (
-    <section className="bg-black w-full min-h-screen pt-16 ">
+    <section className="bg-black w-full min-h-screen pt-16">
       <div className="bg-gray-50">
         <div className="container mx-auto px-4 py-12">
           <div className="grid gap-8 md:grid-cols-2">
@@ -79,7 +78,7 @@ export default async function ProductPage({ params }: PageProps) {
             <div className="space-y-6">
               <div>
                 <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
-                <h3 className="my-2.5 text-sm font-medium text-black/70 ">
+                <h3 className="my-2.5 text-sm font-medium text-black/70">
                   Product Category: <strong>{product.category}</strong>
                 </h3>
               </div>
@@ -100,7 +99,7 @@ export default async function ProductPage({ params }: PageProps) {
               </div>
 
               {/* Customization Options */}
-              {product.customizationOptions && (
+              {product.customizationOptions && product.customizationOptions.length > 0 && (
                 <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h2 className="mb-3 text-lg font-medium">Customization Options</h2>
                   <ul className="list-inside list-disc space-y-1 text-sm text-gray-600">
@@ -112,7 +111,7 @@ export default async function ProductPage({ params }: PageProps) {
               )}
 
               {/* Action Buttons */}
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3">
                 <Link
                   href={whatsappUrl}
                   target="_blank"
@@ -143,7 +142,7 @@ export default async function ProductPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Related Products */}
+          {/* Related / Featured Products */}
           {displayProducts.length > 0 && (
             <div className="mt-16">
               <h2 className="mb-6 text-2xl font-semibold text-black/90">
@@ -162,4 +161,26 @@ export default async function ProductPage({ params }: PageProps) {
       </div>
     </section>
   )
+}
+
+// Add generateMetadata function
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+  const params = await props.params;
+  const product = await getProductByDocumentId(params.id);
+  
+  if (!product) {
+    return {
+      title: 'Product Not Found',
+    };
+  }
+  
+  return {
+    title: `${product.name} | Hamptons Hills`,
+    description: product.description,
+    openGraph: {
+      title: product.name,
+      description: product.description,
+      images: [product.imageUrl],
+    },
+  };
 }
