@@ -11,6 +11,9 @@ importers:
       '@portabletext/react':
         specifier: ^5.0.0
         version: 5.0.0(react@19.1.0)
+      '@portabletext/types':
+        specifier: ^3.0.0
+        version: 3.0.0
       '@sanity/client':
         specifier: ^7.13.1
         version: 7.13.1(debug@4.4.3)
