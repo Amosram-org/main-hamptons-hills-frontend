@@ -22,30 +22,20 @@ const ContactUs = () => {
                     <p className='text-black/70 text-lg text-center'>Have a question? We&apos;re always here to help.</p>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-8 lg:mt-0'>
-                    <div className='flex flex-col gap-4 border border-black/20 p-6 rounded-2xl bg-white/90 backdrop-blur-md'>
-                        <div className='flex items-center gap-4 border border-main-amber/40 p-2 rounded-full w-fit shadow-sm'>
-                            <MdOutlineEmail className='w-6 h-6 text-main-amber '/>
-                        </div>
-         
-                        <h2 className='text-main-amber font-medium text-lg'>Email Us</h2>
-                        <p className='text-main-amber/70'>Send us a message via email.</p>
-                        <Link href='mailto:amsgh@gmail.com' className='flex items-center gap-2 text-main-amber/90 hover:text-main-amber/70 transition duration-150'>
-                            <span>hillshamptons@gmail.com</span>
-                            <IoIosArrowRoundForward/>
-                        </Link>
-                    </div>
+                  
                     <div className='flex flex-col gap-4 border border-black/20 p-6 rounded-2xl bg-white/90 backdrop-blur-md'>
                         <div className='flex items-center gap-4 border border-main-amber/40 p-2 rounded-full w-fit shadow-sm'>
                             <CiPhone className='w-6 h-6 text-main-amber '/>
                         </div>
          
-                        <h2 className='text-main-amber font-medium text-lg'>Call Us or Whatsapp Us</h2>
+                        <h2 className='text-main-amber font-medium text-lg'>Call or Whatsapp Us</h2>
                         <p className='text-main-amber/70'>Speak to us over the phone.</p>
                         <Link href='mailto:amsgh@gmail.com' className='flex items-center gap-2 text-main-amber/90 hover:text-main-amber/70 transition duration-150'>
-                            <span>0734564330</span>
+                            <span>0721462076</span>
                             <IoIosArrowRoundForward/>
                         </Link>
                     </div>
+
                     <div className='flex flex-col gap-4 border border-black/20 p-6 rounded-2xl bg-white/90 backdrop-blur-md'>
                         <div className='flex items-center gap-4 border border-main-amber/40 p-2 rounded-full w-fit shadow-sm'>
                             <LiaIconsSolid className='w-6 h-6 text-main-amber '/>
@@ -64,6 +54,19 @@ const ContactUs = () => {
                                 <FaYoutube/>
                             </Link>
                         </div>
+                    </div>
+
+                    <div className='flex flex-col gap-4 border border-black/20 p-6 rounded-2xl bg-white/90 backdrop-blur-md'>
+                        <div className='flex items-center gap-4 border border-main-amber/40 p-2 rounded-full w-fit shadow-sm'>
+                            <MdOutlineEmail className='w-6 h-6 text-main-amber '/>
+                        </div>
+         
+                        <h2 className='text-main-amber font-medium text-lg'>Email Us</h2>
+                        <p className='text-main-amber/70'>Send us a message via email.</p>
+                        <Link href='mailto:amsgh@gmail.com' className='flex items-center gap-2 text-main-amber/90 hover:text-main-amber/70 transition duration-150'>
+                            <span>hillshamptons@gmail.com</span>
+                            <IoIosArrowRoundForward/>
+                        </Link>
                     </div>
                 </div>
             </div>
