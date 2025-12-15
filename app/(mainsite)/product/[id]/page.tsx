@@ -28,13 +28,13 @@ export default async function ProductPage(props: PageProps) {
       ? relatedProducts.filter((p) => p.id !== id)
       : featuredProducts.filter((p) => p.id !== id)
 
-  const adminPhoneNumber = 254793810819
+  const adminPhoneNumber = 254721462076
 
   // Image URL handling
   const imageUrl =
     product.imageUrl.startsWith('http')
       ? product.imageUrl
-      : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://hamptons-hills.vercel.app'}${product.imageUrl}`
+      : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hamptonshills.com/'}${product.imageUrl}`
 
   // WhatsApp message for product inquiry
   const whatsappMessage = `Hello, I'm interested in this product:

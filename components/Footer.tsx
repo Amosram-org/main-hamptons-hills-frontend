@@ -20,12 +20,12 @@ const Footer = () => {
         <div className='flex flex-col gap-3 mb-4'>
           <h1 className='uppercase font-medium text-xl'>Hamptons Hiils</h1>
           <p className='text-white/60 max-w-[70vw] lg:max-w-[20vw]'>Tombstones & Grave stones for sale in Nairobi Kenya. </p>
-          <Tooltip text="Contact us on WhatsApp" position="top">
+          <Tooltip text="Contact us on WhatsApp" position="top" >
             <Link
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2"
+              className="mt-2 w-fit"
             >
               <Image
                 src="/images/whatsapp-svgrepo-com.svg"
