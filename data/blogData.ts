@@ -20,7 +20,7 @@ const mockPosts: MemorialPost[] = [
     excerpt: 'Exploring how memorial practices have evolved from ancient times to modern day.',
     content: 'Choosing the right material for a memorial is an important decision. This comparison guide examines the characteristics of granite, bronze, and marble memorials. Discover how each material withstands different climate conditions, maintenance requirements, cost considerations, and aesthetic qualities. We help you understand which material best suits your needs, budget, and personal preferences for creating a lasting tribute.',
     slug: 'history-memorialization-practices',
-    imageUrl: images.productImg2.src,
+    imageUrl: images.productImg3.src,
     date: 'August 28, 2025',
     author: 'Hamptons Hills',
     readTime: '8 min read',
