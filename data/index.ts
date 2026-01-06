@@ -9,7 +9,6 @@ import headstonesService from '@/public/images/headstones-service.png'
 import plaquesService from '@/public/images/plaques-service.png'
 
 import productImg1 from '../public/images/black-granite-terrazo-base-and-red-gray-bricks.png'
-import productImg2 from '../public/images/black-granito-tiles-and-granite-headstone.png'
 import productImg3 from '../public/images/gray-and-black-granite-monument.png'
 import productImg4 from '../public/images/gray-black-open-top-granite-white-pebbles-and-flowers.png'
 import productImg5 from '../public/images/two-step-granito-tiles-with-granite-headstones.png'
@@ -24,7 +23,6 @@ export const images = {
     userSvgrepoCom,
     missionImg,
     productImg1,
-    productImg2,
     productImg3,
     productImg4,
     productImg5,

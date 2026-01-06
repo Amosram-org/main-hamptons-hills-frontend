@@ -43,7 +43,7 @@ const page = async () => {
         </div>
         </div>
         
-        <ImageGallery images={images} businessNumber="254793810819"  />
+        <ImageGallery images={images} businessNumber="254721462076"  />
       </div>
     </main>
   )
