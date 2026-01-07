@@ -43,7 +43,7 @@ const Footer = () => {
         <div className='flex flex-col gap-3 mt-6 lg:mt-0'>
           <h1 className='font-medium text-white/90 uppercase'>Follow Us</h1>
           <div className='text-white/60 flex flex-col gap-2'>
-            <Link href='#' className='flex items-center gap-2 hover:text-white transition duration-100 ease-in-out'>
+            <Link href='https://www.facebook.com/profile.php?id=100063710063413' className='flex items-center gap-2 hover:text-white transition duration-100 ease-in-out'>
               <span className='capitalize'>facebook</span>
               <RxArrowTopRight className='mt-0.5'/>
             </Link>
@@ -65,7 +65,7 @@ const Footer = () => {
         <div className='flex flex-col gap-3 mt-6 lg:mt-0'>
             <h1 className='font-medium text-white/90 uppercase'>quick links</h1>
             <div className='text-white/60 flex flex-col gap-2'>
-              <Link href='/#about-us' className='hover:text-white transition duration-100 ease-in-out'> 
+              <Link href='/#about-us' target="_blank" className='hover:text-white transition duration-100 ease-in-out'> 
                 <span className='capitalize'>Our Story</span>
               </Link>
               <Link href='/#featured-products' className='hover:text-white transition duration-100 ease-in-out'> 
