@@ -11,9 +11,11 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  title: "Hamptons Hills - Tombstones and gravestones for sale in nairobi.",
-  description: "A modern kitchen products and gravestones and tombstones manufacturer",
+  title: "Hamptons Hills | Premium Tombstones & Gravestones in Nairobi",
+  description:
+    "Hamptons Hills is a trusted manufacturer and supplier of high-quality tombstones and gravestones in Nairobi, offering custom memorial designs crafted with care and durability.",
 };
+
 
 export default function RootLayout({
   children,
